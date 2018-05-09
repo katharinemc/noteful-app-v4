@@ -371,7 +371,7 @@ const noteful = (function () {
 
       const signupForm = $(event.currentTarget);
       const newUser = {
-        fullname: signupForm.find('.js-fullname-entry').val(),
+        fullName: signupForm.find('.js-fullName-entry').val(),
         username: signupForm.find('.js-username-entry').val(),
         password: signupForm.find('.js-password-entry').val()
       };
@@ -379,7 +379,7 @@ const noteful = (function () {
       api.create('/api/users', newUser)
         .then(response => {
           signupForm[0].reset();
-          showSuccessMessage(`Thank you, ${response.fullname || response.username} for signing up!`);
+          showSuccessMessage(`Thank you, ${response.fullName || response.username} for signing up!`);
         })
         .catch(handleErrors);
     });
@@ -387,7 +387,9 @@ const noteful = (function () {
 
   function handleLoginSubmit() {
     $('.js-login-form').on('submit', event => {
+
       event.preventDefault();
+      console.log('form submitted');
 
       const loginForm = $(event.currentTarget);
       const loginUser = {
@@ -396,18 +398,17 @@ const noteful = (function () {
       };
 
       api.create('/api/login', loginUser)
-        .then(response => {
-          store.authorized = true;
-          loginForm[0].reset();
+    .then(response => {
+      store.authToken = response.authToken; // <<== add this
+      store.authorized = true;
+      loginForm[0].reset();
 
-          store.currentUser = response;
-
-          return Promise.all([
-            api.search('/api/notes'),
-            api.search('/api/folders'),
-            api.search('/api/tags')
-          ]);
-        })
+      return Promise.all([
+        api.search('/api/notes'),
+        api.search('/api/folders'),
+        api.search('/api/tags')
+      ]);
+    })
         .then(([notes, folders, tags]) => {
           store.notes = notes;
           store.folders = folders;

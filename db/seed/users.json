@@ -1,19 +1,19 @@
 [
   {
     "_id": "333333333333333333333300",
-    "fullname": "User Zero",
+    "fullName": "User Zero",
     "username": "user0",
     "password": "password"
   },
   {
-    "_id": "333333333333333333333301",
-    "fullname": "User One",
+    "_id": "5af30d29cf086b0bc90ca202",
+    "fullName": "User One",
     "username": "user1",
-    "password": "password"
+    "password": "passwordpassword"
   },
   {
     "_id": "333333333333333333333302",
-    "fullname": "User Two",
+    "fullName": "User Two",
     "username": "user2",
     "password": "password"
   }
