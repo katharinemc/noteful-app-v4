@@ -81,7 +81,7 @@ describe('Noteful API - Folders', function () {
           expect(res.body).to.be.a('array');
           res.body.forEach(function (item) {
             expect(item).to.be.a('object');
-            expect(item).to.have.keys('id', 'name', 'createdAt', 'updatedAt');
+            expect(item).to.have.keys('id', 'name', 'userId', 'createdAt', 'updatedAt');
           });
         });
     });
