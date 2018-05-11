@@ -17,7 +17,7 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe.skip('Noteful API - Folders', function () {
+describe('Noteful API - Folders', function () {
   before(function () {
     return mongoose.connect(TEST_MONGODB_URI)
       .then(() => mongoose.connection.db.dropDatabase());
@@ -53,7 +53,6 @@ describe.skip('Noteful API - Folders', function () {
   describe('GET /api/folders', function () {
     it('should return the correct number of folders', function () {
       const dbPromise = Folder.find();
-      console.log(token);
       const apiPromise = chai.request(app)
         .get('/api/folders')
         .set('Authorization', `Bearer ${token}`);
@@ -140,7 +139,7 @@ describe.skip('Noteful API - Folders', function () {
   });
 
 
-  describe.skip('POST /api/folders', function () {
+  describe('POST /api/folders', function () {
 
     it('should create and return a new item when provided valid data', function () {
       const newItem = {
@@ -205,7 +204,7 @@ describe.skip('Noteful API - Folders', function () {
 
   });
 
-  describe.skip('PUT /api/folders/:id', function () {
+  describe('PUT /api/folders/:id', function () {
 
     it('should update the folder', function () {
       const updateItem = {
@@ -307,7 +306,7 @@ describe.skip('Noteful API - Folders', function () {
 
   });
 
-  describe.skip('DELETE /api/folders/:id', function () {
+  describe('DELETE /api/folders/:id', function () {
 
     it('should delete an existing document and respond with 204', function () {
       let data;

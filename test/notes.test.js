@@ -22,7 +22,7 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe.only('Noteful API - Notes', function () {
+describe('Noteful API - Notes', function () {
   before(function () {
     return mongoose.connect(TEST_MONGODB_URI)
       .then(() => mongoose.connection.db.dropDatabase());
@@ -57,7 +57,7 @@ describe.only('Noteful API - Notes', function () {
     return mongoose.disconnect();
   });
 
-  describe.skip('GET /api/notes', function () {
+  describe('GET /api/notes', function () {
 
     it('should return the correct number of Notes', function () {
 
@@ -148,7 +148,7 @@ describe.only('Noteful API - Notes', function () {
 
   });
 
-  describe.skip('GET /api/notes/:id', function () {
+  describe('GET /api/notes/:id', function () {
 
     it('should return correct note', function () {
       let data;
@@ -194,7 +194,7 @@ describe.only('Noteful API - Notes', function () {
 
   });
 
-  describe.skip('POST /api/notes', function () {
+  describe('POST /api/notes', function () {
 
     it('should create and return a new item when provided valid data', function () {
       const newItem = {
@@ -240,7 +240,7 @@ describe.only('Noteful API - Notes', function () {
 
   });
 
-  describe.skip('PUT /api/notes/:id', function () {
+  describe('PUT /api/notes/:id', function () {
 
     it('should update the note when provided proper valid data', function () {
       const updateItem = {
@@ -337,7 +337,7 @@ describe.only('Noteful API - Notes', function () {
 
   });
 
-  describe.only('DELETE /api/notes/:id', function () {
+  describe('DELETE /api/notes/:id', function () {
 
     it('should delete an existing document and respond with 204', function () {
       let data;
