@@ -13,10 +13,12 @@ const options = {
   };
   
 
-  console.log(options)
+ 
   const jwtStrategy = new JwtStrategy(options, (payload, done) => {
-    console.log('in jwt strategy');
     done(null, payload.user);
   });
+
+  console.log(jwtStrategy);
+ 
 
   module.exports = jwtStrategy;

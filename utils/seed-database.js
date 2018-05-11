@@ -32,7 +32,7 @@ mongoose.connect(MONGODB_URI)
               permid: user._id,
               username: user.username,
               password: hash,
-              fullName: user.fullName
+              fullname: user.fullname
             };
             return User.create(newUser)
             .then ( () => {
